@@ -1,0 +1,6 @@
+# Ignoruojami katalogai
+.idea/
+.venv/
+
+# Ignoruojami failai
+text.txt
