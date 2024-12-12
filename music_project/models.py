@@ -23,10 +23,22 @@ class Song(models.Model):
         return self.name
 
 class AlbumReview(models.Model):
+    SCORE_CHOICES = [
+        ('1/10', '1/10'),
+        ('2/10', '2/10'),
+        ('3/10', '3/10'),
+        ('4/10', '4/10'),
+        ('5/10', '5/10'),
+        ('6/10', '6/10'),
+        ('7/10', '7/10'),
+        ('8/10', '8/10'),
+        ('9/10', '9/10'),
+        ('10/10', '10/10'),
+    ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     content = models.TextField()
-    score = models.IntegerField()  # pvz 8/10
+    score = models.CharField(max_length=5, choices=SCORE_CHOICES)  # Tik pasirinktos reikšmės
 
     def __str__(self):
         return f'{self.album.name} - {self.user.username}'

@@ -16,8 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from music_project.views import home  # Importuojame pagrindinio puslapio vaizdą
+from music_project.views import BandViewSet, AlbumViewSet, SongViewSet, AlbumReviewViewSet, AlbumReviewCommentViewSet, AlbumReviewLikeViewSet
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('music_project.urls')),
+    path('admin/', admin.site.urls),  # Administratoriaus puslapis
+    path('', home, name='home'),  # Pagrindinis puslapis
+    path('bands/', BandViewSet.as_view(), name='band-list'),
+    path('albums/', AlbumViewSet.as_view(), name='album-list'),
+    path('songs/', SongViewSet.as_view(), name='song-list'),
+    path('albumreviews/', AlbumReviewViewSet.as_view(), name='albumreview-list'),
+    path('albumreviewcomments/', AlbumReviewCommentViewSet.as_view(), name='albumreviewcomment-list'),
+    path('albumreviewlikes/', AlbumReviewLikeViewSet.as_view(), name='albumreviewlike-list'),
 ]

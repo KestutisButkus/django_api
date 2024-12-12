@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Home</title>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Music Project API</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Welcome to the Music Project API</h1>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'band-list' %}">Bands</a></li>
+            <li class="list-group-item"><a href="{% url 'album-list' %}">Albums</a></li>
+            <li class="list-group-item"><a href="{% url 'song-list' %}">Songs</a></li>
+            <li class="list-group-item"><a href="{% url 'albumreview-list' %}">Album Reviews</a></li>
+            <li class="list-group-item"><a href="{% url 'albumreviewcomment-list' %}">Album Review Comments</a></li>
+            <li class="list-group-item"><a href="{% url 'albumreviewlike-list' %}">Album Review Likes</a></li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
