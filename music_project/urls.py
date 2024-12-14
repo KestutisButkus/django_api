@@ -2,34 +2,21 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from . import admin
-from .views import BandViewSet, AlbumReviewViewSet, AlbumReviewCommentViewSet, AlbumViewSet, SongViewSet, AlbumReviewLikeViewSet
+from .views import BandList, BandDetail, AlbumList, AlbumDetail, SongList, SongDetail, AlbumReviewList, \
+    AlbumReviewDetail, AlbumReviewCommentList, AlbumReviewCommentDetail, AlbumReviewLikeList, AlbumReviewLikeDetail
 
-# urlpatterns = [
-#     path('', BandViewSet.as_view()),
-#     path('', AlbumViewSet.as_view()),
-#     path('', SongViewSet.as_view()),
-#     path('', AlbumReviewViewSet.as_view()),
-#     path('', AlbumReviewCommentViewSet.as_view()),
-#     path('', AlbumReviewLikeViewSet.as_view()),
-# ]
-
-# router = DefaultRouter()
-# router.register(r'bands', BandViewSet, basename='band')
-# router.register(r'albums', AlbumViewSet, basename='album')
-# router.register(r'songs', SongViewSet, basename='song')
-# router.register(r'albumreviews', AlbumReviewViewSet, basename='albumreview')
-# router.register(r'albumreviewcomments', AlbumReviewCommentViewSet, basename='albumreviewcomment')
-# router.register(r'albumreviewlikes', AlbumReviewLikeViewSet, basename='albumreviewlike')
-#
-# urlpatterns = [
-#     path('', include(router.urls)),
-# ]
 
 urlpatterns = [
-    path('bands/', BandViewSet.as_view(), name='band-list'),
-    path('albums/', AlbumViewSet.as_view(), name='album-list'),
-    path('songs/', SongViewSet.as_view(), name='song-list'),
-    path('albumreviews/', AlbumReviewViewSet.as_view(), name='albumreview-list'),
-    path('albumreviewcomments/', AlbumReviewCommentViewSet.as_view(), name='albumreviewcomment-list'),
-    path('albumreviewlikes/', AlbumReviewLikeViewSet.as_view(), name='albumreviewlike-list'),
+    path('bands/', BandList.as_view(), name='band-list'),
+    path('bands/<int:pk>/', BandDetail.as_view(), name='band-detail'),
+    path('albums/', AlbumList.as_view(), name='album-list'),
+    path('albums/<int:pk>/', AlbumDetail.as_view(), name='album-detail'),
+    path('songs/', SongList.as_view(), name='song-list'),
+    path('songs/<int:pk>/', SongDetail.as_view(), name='song-detail'),
+    path('albumreviews/', AlbumReviewList.as_view(), name='albumreview-list'),
+    path('albumreviews/<int:pk>/', AlbumReviewDetail.as_view(), name='albumreview-detail'),
+    path('albumreviewcomments/', AlbumReviewCommentList.as_view(), name='albumreviewcomment-list'),
+    path('albumreviewcomments/<int:pk>/', AlbumReviewCommentDetail.as_view(), name='albumreviewcomment-detail'),
+    path('albumreviewlikes/', AlbumReviewLikeList.as_view(), name='albumreviewlike-list'),
+    path('albumreviewlikes/<int:pk>/', AlbumReviewLikeDetail.as_view(), name='albumreviewlike-detail'),
 ]
